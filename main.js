@@ -9,11 +9,26 @@ function addTask () {
     // On supprime les espaces
    
     let taskText = taskInput.value.trim();
+    if (taskText !== "") {
     const taskItem = document.createElement('li');
     taskItem.textContent = taskText
+
+    taskItem.addEventListener("click", function () {
+        taskItem.classList.toggle("completed");
+      });
+
+taskItem.addEventListener("dblclick", function () {
+              taskItem.remove();
+            });
+
     taskList.appendChild(taskItem);
+    taskInput.value = ""
 
 }
+}
+
+
+
     taskInput.addEventListener("keypress", function (event) {
         if (event.key === 'Enter') {
             addTask();
