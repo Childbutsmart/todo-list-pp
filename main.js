@@ -7,11 +7,15 @@ let taskList = document.getElementById('taskList');
 
 function addTask () {
     // On supprime les espaces
+   
     let taskText = taskInput.value.trim();
-    console.log(taskText);
+    const taskItem = document.createElement('li');
+    taskItem.textContent = taskText
+    taskList.appendChild(taskItem);
+
 }
     taskInput.addEventListener("keypress", function (event) {
-        if (event.code === 'Enter') {
+        if (event.key === 'Enter') {
             addTask();
         }
 });
